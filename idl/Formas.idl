@@ -1,0 +1,24 @@
+module Formas {
+  struct Rectangulo { long x; long y; long width; long height; };
+  struct Color { octet r; octet g; octet b; };
+  struct ObjGrafico {
+    string tipo;
+    Rectangulo cerrado;
+    Color linea;
+    Color relleno;
+    boolean esRelleno;
+  };
+
+  interface IForma {
+    long obtVersion();
+    ObjGrafico obtEstados();
+  };
+
+  typedef sequence<IForma> ListaFormas;
+
+  interface IListaForma {
+    IForma nuevaForma(in ObjGrafico g);
+    ListaFormas todaForma();
+    long obtVersion();
+  };
+};
